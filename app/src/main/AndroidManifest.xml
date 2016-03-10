@@ -21,6 +21,10 @@
         <activity
             android:name=".Dashboard"
             android:label="@string/title_activity_dashboard"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".VerzekeringOverzicht"
+            android:label="@string/title_activity_verzekering_overzicht"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
