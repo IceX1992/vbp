@@ -13,6 +13,9 @@ public class MainDAO extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "verzekeringen_users.db";
     private static final int DATABASE_VERSION = 1;
 
+    //hier zijn 2 tabellen, kiezen we daarvoor en dan foreign key gedoe of maken we gewoon 1 tabel wat veel makkelyker gaat zijn
+
+
     private static final String VERZ_TABLE = "Verzekering";
     private static final String VERZ_TYPE = "Verzekerinings type";
     private static final String VERZ_BEGIN = "Begin datum";
