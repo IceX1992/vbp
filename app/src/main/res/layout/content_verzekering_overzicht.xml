@@ -4,68 +4,68 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="@drawable/Background"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="beroepsproduct.dion.test.com.beroepsproduct.VerzekeringOverzicht"
     tools:showIn="@layout/activity_verzekering_overzicht">
 
 
 <TextView
+    android:id="@+id/textView"
     android:layout_width="300dp"
     android:layout_height="100dp"
-    android:text="Wilt u een afspraak maken of terug naar het Dashboard gaan? "
-    android:textStyle="bold"
-    android:textSize="20dp"
-    android:id="@+id/textView"
-    android:textColor="#1d7f07"
     android:layout_alignParentBottom="true"
     android:layout_centerHorizontal="true"
-    android:layout_marginBottom="25dp" />
+    android:layout_marginBottom="25dp"
+    android:text="Wilt u een afspraak maken of terug naar het Dashboard gaan? "
+    android:textColor="#1d7f07"
+    android:textSize="20dp"
+    android:textStyle="bold" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:hint="Soort Verzekering"
         android:id="@+id/SoortVerzekering"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Vervaldatum Verzekering"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="48dp"
+        android:hint="Soort Verzekering" />
+    <TextView
         android:id="@+id/VervaldatumVerzekering"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_above="@+id/imageButton2"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="69dp" />
+        android:layout_marginBottom="69dp"
+        android:hint="Vervaldatum Verzekering" />
 
     // afspraak maken button
     <ImageButton
         android:id="@+id/imageButton"
         android:layout_width="200dp"
         android:layout_height="140dp"
+        android:layout_above="@+id/textView"
+        android:layout_centerHorizontal="true"
         android:background="@android:color/transparent"
         android:onClick="onClickLogin"
         android:scaleType="fitCenter"
-        android:src="@drawable/login_button"
-        android:layout_above="@+id/textView"
-        android:layout_centerHorizontal="true" />
+        android:src="@drawable/login_button" />
 
     // terug naar Dashboard button
     <ImageButton
         android:id="@+id/imageButton2"
         android:layout_width="200dp"
         android:layout_height="140dp"
+        android:layout_alignLeft="@+id/imageButton"
+        android:layout_alignStart="@+id/imageButton"
+        android:layout_centerVertical="true"
         android:background="@android:color/transparent"
         android:onClick="onClickLogin"
         android:scaleType="fitCenter"
-        android:src="@drawable/login_button"
-        android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/imageButton"
-        android:layout_alignStart="@+id/imageButton" />
+        android:src="@drawable/login_button" />
 
 </RelativeLayout>
