@@ -6,9 +6,9 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -53,8 +53,8 @@ public class LoginScherm extends AppCompatActivity {
 
     public void onClick(String username){
         Intent intent = new Intent(this,Dashboard.class);
-       // String welcomeMessage = "Welcome " + username;
-       // intent.putExtra("message", welcomeMessage);
+        String welcomeMessage = "Welcome " + username;
+        intent.putExtra("message", welcomeMessage);
         startActivity(intent);
     }
 

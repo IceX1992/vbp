@@ -14,23 +14,32 @@
     tools:showIn="@layout/activity_dashboard">
 
 
-    <TextView
-        android:id="@+id/welcomeMessage"
+    <EditText
+        android:id="@+id/editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="153dp"
-        android:text="Large Text"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:layout_marginTop="175dp"
+        android:hint="input username" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/welcomeMessage"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="103dp"
-        android:onClick="FindVerzBy"
+        android:layout_alignLeft="@+id/editText"
+        android:layout_alignStart="@+id/editText"
+        android:layout_centerVertical="true"
+        android:onClick="findVerz"
         android:text="New Button" />
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="55dp"
+        android:ems="10"
+        android:inputType="textMultiLine" />
 </RelativeLayout>
