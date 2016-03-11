@@ -33,6 +33,18 @@ public class MainDAO extends SQLiteOpenHelper {
     private static final String USER_PASSWORD = "Password";
     private static final String USER_FIRSTNAME = "Voornaam";
     private static final String USER_LASTNAME = "Achternaam";
+    
+    /*CREATE TABLE Verzekering 
+  (
+    verz_id INTEGER PRIMARY KEY, 
+    Verzekerings_type varchar(20),
+    Begin_Datum DATE, 
+    Eind_datum DATE,
+    user_name varchar(20),
+    FOREIGN KEY (user_name) REFERENCES User(user_name)
+  );
+  */
+  
 
     private static final String SQL_VERZ_TABLE_QUERY = "create table Verzekering (verz_id INTEGER PRIMARY KEY, Verzekerings type STRING NOT NULL, Begin Datum NUMERIC NOT NULL, Eind datum NUMERIC NOT NULL, FOREIGN KEY (user_name) REFERENCES User(user_name))";
 
