@@ -5,20 +5,21 @@ package beroepsproduct.dion.test.com.beroepsproduct.entities;
  */
 public class Verzekering {
 
+
     private long verz_id;
-    private String verzType;
-    private Number verzBegin;
-    private Number verzEnd;
-    private String verzUserName;
+    private String verzekerining_type;
+    private Number begin_datum;
+    private Number eind_datum;
+    private String user_name;
 
-    public Verzekering(long verz_id, String verzType, Number verzBegin, Number verzEnd, String verzUserName) {
+    public Verzekering(long verz_id, String verzekerining_type, Number begin_datum, Number eind_datum, String user_name) {
         this.verz_id = verz_id;
-        this.verzType = verzType;
-        this.verzBegin = verzBegin;
-        this.verzEnd = verzEnd;
-        this.verzUserName = verzUserName;
-
+        this.verzekerining_type = verzekerining_type;
+        this.begin_datum = begin_datum;
+        this.eind_datum = eind_datum;
+        this.user_name = user_name;
     }
+
 
     public long getVerz_id() {
         return verz_id;
@@ -28,36 +29,35 @@ public class Verzekering {
         this.verz_id = verz_id;
     }
 
-    public String getVerzType() {
-        return verzType;
+    public String getVerzekerining_type() {
+        return verzekerining_type;
     }
 
-    public void setVerzType(String verzType) {
-        this.verzType = verzType;
+    public void setVerzekerining_type(String verzekerining_type) {
+        this.verzekerining_type = verzekerining_type;
     }
 
-    public Number getVerzBegin() {
-        return verzBegin;
+    public Number getBegin_datum() {
+        return begin_datum;
     }
 
-    public void setVerzBegin(Number verzBegin) {
-        this.verzBegin = verzBegin;
+    public void setBegin_datum(Number begin_datum) {
+        this.begin_datum = begin_datum;
     }
 
-    public Number getVerzEnd() {
-        return verzEnd;
+    public Number getEind_datum() {
+        return eind_datum;
     }
 
-    public void setVerzEnd(Number verzEnd) {
-        this.verzEnd = verzEnd;
+    public void setEind_datum(Number eind_datum) {
+        this.eind_datum = eind_datum;
     }
 
-    public String getVerzUserName() {
-        return verzUserName;
+    public String getUser_name() {
+        return user_name;
     }
 
-    public void setVerzUserName(String verzUserName) {
-        this.verzUserName = verzUserName;
+    public void setUser_name(String user_name) {
+        this.user_name = user_name;
     }
-
 }
