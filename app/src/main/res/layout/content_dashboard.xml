@@ -40,6 +40,8 @@
         android:layout_below="@+id/button"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="55dp"
+        android:clickable="true"
         android:ems="10"
-        android:inputType="textMultiLine" />
+        android:inputType="textMultiLine"
+        android:onClick="onClick" />
 </RelativeLayout>

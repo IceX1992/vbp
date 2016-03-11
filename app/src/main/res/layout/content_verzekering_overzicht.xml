@@ -52,7 +52,7 @@
         android:layout_above="@+id/textView"
         android:layout_centerHorizontal="true"
         android:background="@android:color/transparent"
-        android:onClick="onClickLogin"
+        android:onClick="afspraakMaken"
         android:scaleType="fitCenter"
         android:src="@drawable/login_button" />
 
@@ -65,7 +65,7 @@
         android:layout_alignStart="@+id/imageButton"
         android:layout_centerVertical="true"
         android:background="@android:color/transparent"
-        android:onClick="onClickLogin"
+        android:onClick="back2DB"
         android:scaleType="fitCenter"
         android:src="@drawable/login_button" />
 

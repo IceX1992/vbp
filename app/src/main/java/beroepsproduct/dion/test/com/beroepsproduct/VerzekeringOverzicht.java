@@ -1,8 +1,7 @@
 package beroepsproduct.dion.test.com.beroepsproduct;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -19,4 +18,25 @@ public class VerzekeringOverzicht extends AppCompatActivity {
 
     }
 
+
+    public void afspraakMaken(View view) {
+        onClickAfspraak();
+    }
+
+
+    public void back2DB(View view) {
+        onClickDashboard();
+    }
+
+
+    public void onClickDashboard() {
+        Intent intent = new Intent(this, Dashboard.class);
+        startActivity(intent);
+    }
+
+
+    public void onClickAfspraak() {
+        Intent intent = new Intent(this, AfspraakMaken.class);
+        startActivity(intent);
+    }
 }

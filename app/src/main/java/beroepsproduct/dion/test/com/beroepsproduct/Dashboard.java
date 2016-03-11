@@ -92,4 +92,15 @@ public class Dashboard extends AppCompatActivity {
 
     }
 
+    public void onClick(View view) {
+        onClickVerzOverz();
+    }
+
+    public void onClickVerzOverz() {
+        Intent intent = new Intent(this, VerzekeringOverzicht.class);
+        startActivity(intent);
+    }
+
+
+
 }
