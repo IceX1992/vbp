@@ -7,14 +7,14 @@ public class Verzekering {
 
 
     private long verz_id;
-    private String verzekerining_type;
+    private String verzekering_type;
     private Number begin_datum;
     private Number eind_datum;
     private String user_name;
 
-    public Verzekering(long verz_id, String verzekerining_type, Number begin_datum, Number eind_datum, String user_name) {
+    public Verzekering(long verz_id, String verzekering_type, Number begin_datum, Number eind_datum, String user_name) {
         this.verz_id = verz_id;
-        this.verzekerining_type = verzekerining_type;
+        this.verzekering_type = verzekering_type;
         this.begin_datum = begin_datum;
         this.eind_datum = eind_datum;
         this.user_name = user_name;
@@ -29,12 +29,12 @@ public class Verzekering {
         this.verz_id = verz_id;
     }
 
-    public String getVerzekerining_type() {
-        return verzekerining_type;
+    public String getVerzekering_type() {
+        return verzekering_type;
     }
 
-    public void setVerzekerining_type(String verzekerining_type) {
-        this.verzekerining_type = verzekerining_type;
+    public void setVerzekering_type(String verzekering_type) {
+        this.verzekering_type = verzekering_type;
     }
 
     public Number getBegin_datum() {

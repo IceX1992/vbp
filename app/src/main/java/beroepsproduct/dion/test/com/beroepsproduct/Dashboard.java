@@ -83,7 +83,7 @@ public class Dashboard extends AppCompatActivity {
 
         //findVerzByUserName wordt opgeroepen en de gevonden dingen worden gezet in een String
         db.findVerzByUserName(usernameValue);
-        String output = String.format("Verzekering type : %s \n Verz begint op : %s \n Verz eindigt op: %s \n", verzekering.getVerzekerining_type(), verzekering.getBegin_datum(), verzekering.getEind_datum());
+        String output = String.format("Verzekering type : %s \n Verz begint op : %s \n Verz eindigt op: %s \n", verzekering.getVerzekering_type(), verzekering.getBegin_datum(), verzekering.getEind_datum());
 
         //output wordt gezet in de multiline
         EditText outputView = (EditText) findViewById(R.id.editText2);
