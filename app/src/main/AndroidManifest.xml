@@ -25,6 +25,10 @@
         <activity
             android:name=".VerzekeringOverzicht"
             android:label="@string/title_activity_verzekering_overzicht"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".AfspraakMaken"
+            android:label="@string/title_activity_afspraak_maken"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

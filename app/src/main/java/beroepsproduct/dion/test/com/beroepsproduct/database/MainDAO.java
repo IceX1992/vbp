@@ -75,6 +75,7 @@ public class MainDAO extends SQLiteOpenHelper {
 
 
     public Verzekering findVerzByUserName(String username) {
+        insertDefaultData();
         Verzekering verzekering = null;
         SQLiteDatabase db = getReadableDatabase();
         String sql = String.format("select * from %s where %s = '%s'", VERZ_TABLE, VERZ_USERNAME, username);
@@ -91,7 +92,7 @@ public class MainDAO extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(SQL_VERZ_TABLE_QUERY);
         db.execSQL(SQL_USER_TABLE_QUERY);
-        insertDefaultData();
+        //   insertDefaultData();
     }
 
     @Override

@@ -44,7 +44,7 @@
         android:layout_marginBottom="69dp"
         android:hint="Vervaldatum Verzekering" />
 
-    // afspraak maken button
+    <!--afspraak maken button-->
     <ImageButton
         android:id="@+id/imageButton"
         android:layout_width="200dp"
@@ -56,7 +56,7 @@
         android:scaleType="fitCenter"
         android:src="@drawable/login_button" />
 
-    // terug naar Dashboard button
+    <!--terug naar Dashboard button-->
     <ImageButton
         android:id="@+id/imageButton2"
         android:layout_width="200dp"

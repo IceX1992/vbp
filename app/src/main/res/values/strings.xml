@@ -4,4 +4,5 @@
     <string name="title_activity_dashboard">Dashboard</string>
     <string name="logoutUser">Logout</string>
     <string name="title_activity_verzekering_overzicht">VerzekeringOverzicht</string>
+    <string name="title_activity_afspraak_maken">AfspraakMaken</string>
 </resources>
