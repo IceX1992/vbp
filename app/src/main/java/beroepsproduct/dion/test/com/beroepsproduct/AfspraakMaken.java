@@ -10,6 +10,8 @@ import android.widget.CalendarView;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import static android.widget.Toast.LENGTH_LONG;
+
 public class AfspraakMaken extends AppCompatActivity {
 
     CalendarView afspraak;
@@ -23,7 +25,7 @@ public class AfspraakMaken extends AppCompatActivity {
         Bundle username = getIntent().getExtras();
         String message = "";
         message = username.getString("username");
-        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+        Toast.makeText(this, message, LENGTH_LONG).show();
 
 
         back2DB(message);
@@ -35,7 +37,10 @@ public class AfspraakMaken extends AppCompatActivity {
         afspraak.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month  , int dayOfMonth) {
-                Toast.makeText(getApplicationContext(), dayOfMonth + "/" + (month+1) + "/" + year, Toast.LENGTH_LONG).show();
+                String datum = String.valueOf(year) + "-" + String.valueOf(month + 1) + "-" + String.valueOf(dayOfMonth);
+
+                Toast.makeText(getApplicationContext(), datum, LENGTH_LONG).show();
+                //  Toast.makeText(getApplicationContext(), dayOfMonth + "/" + (month+1) + "/" + year, Toast.LENGTH_LONG).show();
             }
         });
     }

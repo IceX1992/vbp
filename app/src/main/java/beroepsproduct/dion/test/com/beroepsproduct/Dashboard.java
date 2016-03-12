@@ -33,6 +33,30 @@ public class Dashboard extends AppCompatActivity {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
 
 
+        //ARRAY NIET WERKEND
+/*
+        ArrayList<Verzekering> verzekeringen = db.showMultiVerz(message);
+        if (verzekeringen !=null){
+            ListView listView = (ListView) findViewById(R.id.listView);
+            ListIterator<Verzekering> iterator1 = verzekeringen.listIterator();
+
+            ArrayList<String> helperList = new ArrayList<>();
+            ArrayList<Verzekering> uniqueVerz = new ArrayList<>();
+
+            for (Verzekering verzekering : verzekeringen){
+                if (!helperList.contains(verzekering.toString())){
+                    helperList.add(verzekering.toString());
+                    uniqueVerz.add(verzekering);
+                }
+            }
+
+            ArrayAdapter<Verzekering> adapter = new ArrayAdapter<Verzekering>(this, android.R.layout.simple_selectable_list_item, uniqueVerz);
+
+            listView.setAdapter(adapter);
+
+        }
+
+*/
         //text met verzekeringen
         getVerz(message);
         //stuur de username naar de methode sendMessageAfspraakMaken, daar gebruikt omt het in die activity te krijgen

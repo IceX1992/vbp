@@ -151,6 +151,25 @@ public class MainDAO extends SQLiteOpenHelper {
         return loginTry;
     }
 
+    //multi verz vinden en zetten in array NIET WERKEND
+/*
+    public ArrayList<Verzekering> showMultiVerz (String username){
+        ArrayList<Verzekering> verzekeringen = null;
+        SQLiteDatabase db = getReadableDatabase();
+        String sql = String.format("select * from %s where %s = '%s';", VERZ_TABLE, VERZ_USERNAME, username);
+        Cursor cursor = db.rawQuery(sql, null);
+        cursor.moveToFirst();
+        if(cursor.getCount() > 0) verzekeringen = new ArrayList<>();
+            Verzekering verzekering = null;
+            while (!cursor.isAfterLast()){
+                verzekering = new Verzekering(cursor.getLong(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4));
+           //     assert verzekeringen != null;
+                verzekeringen.add(verzekering);
+            }
+            db.close();
+            return verzekeringen;
+    }
+*/
     public Verzekering showVerz(String username) {
         Verzekering num1 = null;
         SQLiteDatabase db = getReadableDatabase();
