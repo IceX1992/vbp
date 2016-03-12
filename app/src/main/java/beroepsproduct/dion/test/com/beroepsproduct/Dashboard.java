@@ -2,33 +2,21 @@ package beroepsproduct.dion.test.com.beroepsproduct;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import beroepsproduct.dion.test.com.beroepsproduct.database.MainDAO;
 import beroepsproduct.dion.test.com.beroepsproduct.entities.Verzekering;
 
 public class Dashboard extends AppCompatActivity {
 
-    //entity verzekering wordt opgeroepen
-    Verzekering verzekering = null;
-    //db wordt opgeroepen
     private MainDAO db;
 
-    /*
-        private void onArrive() {
-            Intent intent = getIntent();
-            String message = intent.getStringExtra("message");
-            TextView textView = (TextView) findViewById(R.id.welcomeMessage);
-            textView.setText(message);
-        }
-    */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,9 +24,27 @@ public class Dashboard extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        //db wordt gemaakt
         db = new MainDAO(this);
-        // onArrive();
+
+        Bundle username = getIntent().getExtras();
+        String message = "";
+        message = username.getString("username");
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+
+
+        message = String.valueOf(username.getString("username"));
+
+        Verzekering verz1 = null;
+        TextView outputVerz = (TextView) findViewById(R.id.textView);
+        verz1 = db.showVerz(message);
+
+        if (verz1 != null) {
+            String output = String.format("Uw %s vervalt op %s", Verzekering.getVerzekering_type(), Verzekering.getEind_datum());
+            outputVerz.setText(output);
+        } else {
+            String notification = "Geen verzekering gevonden";
+            Toast.makeText(this, notification, Toast.LENGTH_LONG).show();
+        }
 
 
     }
@@ -70,31 +76,15 @@ public class Dashboard extends AppCompatActivity {
         startActivity(intent);
     }
 
+
     public void findVerz(View view) {
-        EditText username = (EditText) findViewById(R.id.editText);
-        String usernameValue = String.valueOf(username.getText());
 
-        //findVerzByUserName wordt opgeroepen en de gevonden dingen worden gezet in een String
-        db.findVerzByUserName(usernameValue);
-        String output = String.format("Verzekering type : %s \n Verz begint op : %s \n Verz eindigt op: %s \n", verzekering.getVerzekering_type(), verzekering.getBegin_datum(), verzekering.getEind_datum());
-
-        //output wordt gezet in de multiline
-        EditText outputView = (EditText) findViewById(R.id.editText2);
-        outputView.setText(output);
-
-
-    }
-
-    //clickable text, maybe veranderen dat we gewoon een button beneden hebben voor afspraak maken en 1 voor verzekeringen bekijken
-    public void onClick(View view) {
-        onClickVerzOverz();
-    }
-
-    public void onClickVerzOverz() {
         Intent intent = new Intent(this, VerzekeringOverzicht.class);
         startActivity(intent);
     }
 
-
-
+    public void verzInfo(View view) {
+        Intent intent = new Intent(this, AfspraakMaken.class);
+        startActivity(intent);
+    }
 }

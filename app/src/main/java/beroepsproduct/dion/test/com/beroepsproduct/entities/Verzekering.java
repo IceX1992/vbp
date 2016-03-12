@@ -5,59 +5,66 @@ package beroepsproduct.dion.test.com.beroepsproduct.entities;
  */
 public class Verzekering {
 
+/*
+    private static final String VERZ_TABLE = "verzekering";
+    private static final String VERZ_ID = "verz_id";
+    private static final String VERZ_TYPE = "verzekering_type";
+    private static final String VERZ_BEGIN = "begin_datum";
+    private static final String VERZ_END = "eind_datum";
+    private static final String VERZ_USERNAME = "user_name";
+ */
 
-    private long verz_id;
-    private String verzekering_type;
-    private Number begin_datum;
-    private Number eind_datum;
-    private String user_name;
+    private static String verzekering_type;
+    private static String begin_datum;
+    private static String eind_datum;
+    private static String user_name;
+    private long id;
 
-    public Verzekering(long verz_id, String verzekering_type, Number begin_datum, Number eind_datum, String user_name) {
-        this.verz_id = verz_id;
-        this.verzekering_type = verzekering_type;
-        this.begin_datum = begin_datum;
-        this.eind_datum = eind_datum;
-        this.user_name = user_name;
+    public Verzekering(long id, String verzekering_type, String begin_datum, String eind_datum, String user_name) {
+        this.id = id;
+        Verzekering.verzekering_type = verzekering_type;
+        Verzekering.begin_datum = begin_datum;
+        Verzekering.eind_datum = eind_datum;
+        Verzekering.user_name = user_name;
     }
 
-
-    public long getVerz_id() {
-        return verz_id;
-    }
-
-    public void setVerz_id(long verz_id) {
-        this.verz_id = verz_id;
-    }
-
-    public String getVerzekering_type() {
+    public static String getVerzekering_type() {
         return verzekering_type;
     }
 
-    public void setVerzekering_type(String verzekering_type) {
-        this.verzekering_type = verzekering_type;
+    public static void setVerzekering_type(String verzekering_type) {
+        Verzekering.verzekering_type = verzekering_type;
     }
 
-    public Number getBegin_datum() {
+    public static String getBegin_datum() {
         return begin_datum;
     }
 
-    public void setBegin_datum(Number begin_datum) {
-        this.begin_datum = begin_datum;
+    public static void setBegin_datum(String begin_datum) {
+        Verzekering.begin_datum = begin_datum;
     }
 
-    public Number getEind_datum() {
+    public static String getEind_datum() {
         return eind_datum;
     }
 
-    public void setEind_datum(Number eind_datum) {
-        this.eind_datum = eind_datum;
+    public static void setEind_datum(String eind_datum) {
+        Verzekering.eind_datum = eind_datum;
     }
 
-    public String getUser_name() {
+    public static String getUser_name() {
         return user_name;
     }
 
-    public void setUser_name(String user_name) {
-        this.user_name = user_name;
+    public static void setUser_name(String user_name) {
+        Verzekering.user_name = user_name;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }
