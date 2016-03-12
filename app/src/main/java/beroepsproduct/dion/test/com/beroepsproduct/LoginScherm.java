@@ -2,8 +2,6 @@ package beroepsproduct.dion.test.com.beroepsproduct;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -12,7 +10,12 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import beroepsproduct.dion.test.com.beroepsproduct.database.MainDAO;
+import beroepsproduct.dion.test.com.beroepsproduct.entities.User;
+
 public class LoginScherm extends AppCompatActivity {
+
+    private MainDAO db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +24,7 @@ public class LoginScherm extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        db = new MainDAO(this);
 
     }
 
@@ -33,26 +37,26 @@ public class LoginScherm extends AppCompatActivity {
 
         String notification = "";
 
-        //change to !usernameValue.isEmpty() && !passwordValue.isEmpty()
-        if (usernameValue.equals("dion") && passwordValue.equals("dion")){
-        //db authentication
-            onClick(usernameValue);
-            notification = "Welkom " + usernameValue;
+        User login = null;
+
+        login = db.login(usernameValue, passwordValue);
+
+        if (login != null) {
+            boolean isPasswordValid = login.comparePassword(passwordValue);
+
+            if (isPasswordValid) {
+                Intent intent = new Intent(this, Dashboard.class);
+                intent.putExtra("username", User.getUser_name());
+                startActivity(intent);
+            } else {
+                notification = "Foutieve login, probeert U het nogmaals";
+            }
+
         }else{
-            notification = "Foutieve inlog gegevens, probeert U het nog een keer";
+            notification = "Foutieve login probeert U het nogmaals";
         }
         Toast.makeText(this,notification,Toast.LENGTH_SHORT).show();
     }
-
-    public void onClick(String username){
-        Intent intent = new Intent(this,Dashboard.class);
-        String welcomeMessage = "Welcome " + username;
-        intent.putExtra("message", welcomeMessage);
-        startActivity(intent);
-    }
-
-
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

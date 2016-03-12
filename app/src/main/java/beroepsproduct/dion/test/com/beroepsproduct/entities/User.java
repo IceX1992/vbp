@@ -5,58 +5,61 @@ package beroepsproduct.dion.test.com.beroepsproduct.entities;
  */
 public class User {
 
+/*
+    private static final String USER_TABLE = "user";
+    private static final String USER_USERNAME = "user_name";
+    private static final String USER_PASSWORD = "password";
+    private static final String USER_FIRSTNAME = "voornaam";
+    private static final String USER_LASTNAME = "achternaam";
+ */
 
-    private long user_id;
-    private String user_name;
-    private String pw;
-    private String voornaam;
-    private String achternaam;
 
-    public User(long user_id, String user_name, String pw, String voornaam, String achternaam) {
-        this.user_id = user_id;
-        this.user_name = user_name;
-        this.pw = pw;
-        this.voornaam = voornaam;
-        this.achternaam = achternaam;
+    private static String user_name;
+    private static String password;
+    private static String voornaam;
+    private static String achternaam;
+
+    public User(String user_name, String password, String voornaam, String achternaam) {
+        User.user_name = user_name;
+        User.password = password;
+        User.voornaam = voornaam;
+        User.achternaam = achternaam;
+
     }
 
-    public long getUser_id() {
-        return user_id;
-    }
-
-    public void setUser_id(long user_id) {
-        this.user_id = user_id;
-    }
-
-    public String getUser_name() {
+    public static String getUser_name() {
         return user_name;
     }
 
-    public void setUser_name(String user_name) {
-        this.user_name = user_name;
+    public static void setUser_name(String user_name) {
+        User.user_name = user_name;
     }
 
-    public String getPw() {
-        return pw;
+    public static String getPassword() {
+        return password;
     }
 
-    public void setPw(String pw) {
-        this.pw = pw;
+    public static void setPassword(String password) {
+        User.password = password;
     }
 
-    public String getVoornaam() {
+    public static String getVoornaam() {
         return voornaam;
     }
 
-    public void setVoornaam(String voornaam) {
-        this.voornaam = voornaam;
+    public static void setVoornaam(String voornaam) {
+        User.voornaam = voornaam;
     }
 
-    public String getAchternaam() {
+    public static String getAchternaam() {
         return achternaam;
     }
 
-    public void setAchternaam(String achternaam) {
-        this.achternaam = achternaam;
+    public static void setAchternaam(String achternaam) {
+        User.achternaam = achternaam;
+    }
+
+    public boolean comparePassword(String passwordIn) {
+        return password.equals(passwordIn);
     }
 }
