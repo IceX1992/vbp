@@ -16,15 +16,15 @@
 
 <TextView
     android:id="@+id/textView"
-    android:layout_width="300dp"
+    android:layout_width="250dp"
     android:layout_height="50dp"
     android:text="Wilt u een afspraak maken of terug gaan naar het dashboard? "
     android:textColor="#1d7f07"
     android:textSize="15dp"
     android:textStyle="bold"
+    android:layout_marginTop="29dp"
     android:layout_below="@+id/imageButton2"
-    android:layout_centerHorizontal="true"
-    android:layout_marginTop="40dp" />
+    android:layout_centerHorizontal="true" />
 
     <TextView
         android:id="@+id/SoortVerzekering"
@@ -65,8 +65,9 @@
         android:onClick="back2DB"
         android:scaleType="fitCenter"
         android:src="@drawable/dashboard_button"
+        android:layout_marginTop="35dp"
         android:layout_below="@+id/imageButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="42dp" />
+        android:layout_alignLeft="@+id/imageButton"
+        android:layout_alignStart="@+id/imageButton" />
 
 </RelativeLayout>

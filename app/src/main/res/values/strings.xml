@@ -5,4 +5,7 @@
     <string name="logoutUser">Logout</string>
     <string name="title_activity_verzekering_overzicht">VerzekeringOverzicht</string>
     <string name="title_activity_afspraak_maken">AfspraakMaken</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_spash">Spash</string>
+    <string name="title_activity_splashh">Splashh</string>
 </resources>
