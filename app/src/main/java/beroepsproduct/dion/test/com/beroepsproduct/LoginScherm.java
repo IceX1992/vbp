@@ -25,7 +25,6 @@ public class LoginScherm extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         db = new MainDAO(this);
-
     }
 
     public void onClickLogin(View view){
@@ -36,14 +35,12 @@ public class LoginScherm extends AppCompatActivity {
         String passwordValue = String.valueOf(password.getText());
 
         String notification = "";
-
         User login = null;
 
         login = db.login(usernameValue, passwordValue);
 
         if (login != null) {
             boolean isPasswordValid = login.comparePassword(passwordValue);
-
             if (isPasswordValid) {
                 Intent intent = new Intent(this, Dashboard.class);
                 intent.putExtra("username", User.getUser_name());
@@ -51,9 +48,7 @@ public class LoginScherm extends AppCompatActivity {
             } else {
                 notification = "Foutieve login, probeert U het nogmaals";
                 Toast.makeText(this,notification,Toast.LENGTH_SHORT).show();
-
             }
-
         }else{
             notification = "Foutieve login probeert U het nogmaals";
             Toast.makeText(this,notification,Toast.LENGTH_SHORT).show();
@@ -80,4 +75,8 @@ public class LoginScherm extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void go2Create(View view) {
+        Intent intent = new Intent(this, CreateNew.class);
+        startActivity(intent);
+    }
 }

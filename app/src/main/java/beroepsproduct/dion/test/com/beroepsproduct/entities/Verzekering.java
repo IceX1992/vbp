@@ -5,15 +5,6 @@ package beroepsproduct.dion.test.com.beroepsproduct.entities;
  */
 public class Verzekering {
 
-/*
-    private static final String VERZ_TABLE = "verzekering";
-    private static final String VERZ_ID = "verz_id";
-    private static final String VERZ_TYPE = "verzekering_type";
-    private static final String VERZ_BEGIN = "begin_datum";
-    private static final String VERZ_END = "eind_datum";
-    private static final String VERZ_USERNAME = "user_name";
- */
-
     private static String verzekering_type;
     private static String begin_datum;
     private static String eind_datum;

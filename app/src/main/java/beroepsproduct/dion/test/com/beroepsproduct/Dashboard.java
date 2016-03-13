@@ -7,7 +7,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,45 +30,16 @@ public class Dashboard extends AppCompatActivity {
         Bundle username = getIntent().getExtras();
         String message = "";
         message = username.getString("username");
-        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
 
-
-        //ARRAY NIET WERKEND
-/*
-        ArrayList<Verzekering> verzekeringen = db.showMultiVerz(message);
-        if (verzekeringen !=null){
-            ListView listView = (ListView) findViewById(R.id.listView);
-            ListIterator<Verzekering> iterator1 = verzekeringen.listIterator();
-
-            ArrayList<String> helperList = new ArrayList<>();
-            ArrayList<Verzekering> uniqueVerz = new ArrayList<>();
-
-            for (Verzekering verzekering : verzekeringen){
-                if (!helperList.contains(verzekering.toString())){
-                    helperList.add(verzekering.toString());
-                    uniqueVerz.add(verzekering);
-                }
-            }
-
-            ArrayAdapter<Verzekering> adapter = new ArrayAdapter<Verzekering>(this, android.R.layout.simple_selectable_list_item, uniqueVerz);
-
-            listView.setAdapter(adapter);
-
-        }
-
-*/
         //text met verzekeringen
         getVerz(message);
         //stuur de username naar de methode sendMessageAfspraakMaken, daar gebruikt omt het in die activity te krijgen
         sendMessageAfspraakMaken(message);
         //stuur de username naar de methode sendMessageOverzicht, daar gebruikt om het in die activity te krijgen
         sendMessageOverzicht(message);
-
-
     }
 
     public void getVerz(String username) {
-
         Verzekering verz1 = null;
         TextView outputVerz = (TextView) findViewById(R.id.textView);
         verz1 = db.showVerz(username);
@@ -81,8 +51,6 @@ public class Dashboard extends AppCompatActivity {
             String notification = "Geen verzekering gevonden";
             Toast.makeText(this, notification, Toast.LENGTH_LONG).show();
         }
-
-
     }
 
     @Override

@@ -9,7 +9,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import beroepsproduct.dion.test.com.beroepsproduct.database.MainDAO;
 import beroepsproduct.dion.test.com.beroepsproduct.entities.Verzekering;
@@ -27,7 +26,6 @@ public class VerzekeringOverzicht extends AppCompatActivity {
         Bundle username = getIntent().getExtras();
         String message = "";
         message = username.getString("username");
-        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
 
         afspraakMaken(message);
         back2DB(message);
@@ -37,7 +35,6 @@ public class VerzekeringOverzicht extends AppCompatActivity {
         showVerzNaam(message);
         showverzVerval(message);
         showStart(message);
-
     }
 
     public void showVerzNaam(String username) {
@@ -138,6 +135,4 @@ public class VerzekeringOverzicht extends AppCompatActivity {
         Intent intent = new Intent(this, LoginScherm.class);
         startActivity(intent);
     }
-
-
 }

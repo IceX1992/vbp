@@ -14,8 +14,6 @@ import android.widget.Toast;
 import beroepsproduct.dion.test.com.beroepsproduct.database.AfspraakDAO;
 import beroepsproduct.dion.test.com.beroepsproduct.entities.Afspraak;
 
-import static android.widget.Toast.LENGTH_LONG;
-
 public class AfspraakMaken extends AppCompatActivity {
 
     CalendarView afspraak;
@@ -31,14 +29,12 @@ public class AfspraakMaken extends AppCompatActivity {
         final Bundle username = getIntent().getExtras();
         String message = "";
         message = username.getString("username");
-        Toast.makeText(this, message, LENGTH_LONG).show();
-
 
         db = new AfspraakDAO(this);
+
         searchAfspraak(message);
 
         afspraak = (CalendarView) findViewById(R.id.calendarView);
-
         //sets the listener to be notified upon selected date change.
         afspraak.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
@@ -47,44 +43,26 @@ public class AfspraakMaken extends AppCompatActivity {
                 final String message = username.getString("username");
                 afspraakMaken(message, datum);
                 Toast.makeText(getApplicationContext(), datum, Toast.LENGTH_SHORT).show();
-                //  Toast.makeText(getApplicationContext(), dayOfMonth + "/" + (month+1) + "/" + year, Toast.LENGTH_LONG).show();
             }
         });
     }
 
     public void searchAfspraak(final String username) {
-
-
         ImageButton invoer = (ImageButton) findViewById(R.id.button3);
         invoer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Afspraak test = null;
                 test = db.findAfs(username);
-
                 if (test != null) {
                     testOutput = String.format("Afspraak op %s", Afspraak.getDatum());
-
-
                 } else {
                     testOutput = "Geen afspraak";
-
                 }
                 Toast.makeText(v.getContext(), testOutput, Toast.LENGTH_LONG).show();
-
             }
         });
-
- /*       if (test != null){
-            testOutput = String.format("Afspraak op %s",test.getDatum());
-
-
-        }else{
-            testOutput = "Geen afspraak";
-
-        }
-        Toast.makeText(this,testOutput,Toast.LENGTH_LONG).show();
-*/
     }
 
     @Override
@@ -117,10 +95,7 @@ public class AfspraakMaken extends AppCompatActivity {
     public void afspraakMaken(final String username, final String datum) {
         ImageButton afspraak = (ImageButton) findViewById(R.id.Imagebutton);
 
-
         //insert afspraak wordt gedaan als afspraakMaken wordt opgeroepen in de onSelectedDayChange (line 44) op line 47
-
-
         afspraak.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -133,16 +108,5 @@ public class AfspraakMaken extends AppCompatActivity {
                 Toast.makeText(v.getContext(), notification, Toast.LENGTH_LONG).show();
             }
         });
-
-  /*      final String extra = username;
-        b2db.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), Dashboard.class);
-                intent.putExtra("username", extra);
-                startActivity(intent);
-            }
-        });
-*/
     }
 }

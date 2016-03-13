@@ -19,8 +19,8 @@ public class AfspraakDAO extends SQLiteOpenHelper {
     public static final String AFS_USERNAME = "username";
     private static final String DATABASE_NAME = "afspraken.db";
     private static final int DATABASE_VERSION = 1;
-    private static final String SQL_AFS_TABLE_QUERY = ("CREATE TABLE afspraak (afs_id INTEGER PRIMARY KEY, datum TEXT , username TEXT UNIQUE);");
 
+    private static final String SQL_AFS_TABLE_QUERY = ("CREATE TABLE afspraak (afs_id INTEGER PRIMARY KEY, datum TEXT , username TEXT UNIQUE);");
 
     public AfspraakDAO(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);

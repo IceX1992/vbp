@@ -5,15 +5,6 @@ package beroepsproduct.dion.test.com.beroepsproduct.entities;
  */
 public class User {
 
-/*
-    private static final String USER_TABLE = "user";
-    private static final String USER_USERNAME = "user_name";
-    private static final String USER_PASSWORD = "password";
-    private static final String USER_FIRSTNAME = "voornaam";
-    private static final String USER_LASTNAME = "achternaam";
- */
-
-
     private static String user_name;
     private static String password;
     private static String voornaam;
@@ -24,7 +15,6 @@ public class User {
         User.password = password;
         User.voornaam = voornaam;
         User.achternaam = achternaam;
-
     }
 
     public static String getUser_name() {

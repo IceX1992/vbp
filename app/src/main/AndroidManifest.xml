@@ -29,6 +29,10 @@
         <activity
             android:name=".AfspraakMaken"
             android:label="@string/title_activity_afspraak_maken"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".CreateNew"
+            android:label="@string/title_activity_create_new"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

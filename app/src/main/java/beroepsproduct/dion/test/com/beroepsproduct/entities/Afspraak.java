@@ -5,13 +5,6 @@ package beroepsproduct.dion.test.com.beroepsproduct.entities;
  */
 public class Afspraak {
 
-    /*
-        private static final String AFS_TABLE = "afspraak";
-    private static final String AFS_ID = "afs_id";
-    private static final String AFS_DATUM = "datum";
-    private static final String AFS_USERNAME = "username";
-     */
-
     private static String datum;
     private static String username;
     private static long afs_id;

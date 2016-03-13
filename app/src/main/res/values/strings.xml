@@ -8,4 +8,5 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_spash">Spash</string>
     <string name="title_activity_splashh">Splashh</string>
+    <string name="title_activity_create_new">CreateNew</string>
 </resources>

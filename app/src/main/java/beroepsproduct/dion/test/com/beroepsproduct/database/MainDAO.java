@@ -14,23 +14,19 @@ import beroepsproduct.dion.test.com.beroepsproduct.entities.Verzekering;
  */
 public class MainDAO extends SQLiteOpenHelper {
 
+    public static final String VERZ_TYPE = "verzekering_type";
+    public static final String VERZ_BEGIN = "begin_datum";
+    public static final String VERZ_END = "eind_datum";
+    public static final String VERZ_USERNAME = "user_name";
+    public static final String USER_USERNAME = "user_name";
+    public static final String USER_PASSWORD = "password";
+    public static final String USER_FIRSTNAME = "voornaam";
+    public static final String USER_LASTNAME = "achternaam";
     private static final String DATABASE_NAME = "verzekeringen_users.db";
     private static final int DATABASE_VERSION = 1;
-
     private static final String VERZ_TABLE = "verzekering";
     private static final String VERZ_ID = "verz_id";
-    private static final String VERZ_TYPE = "verzekering_type";
-    private static final String VERZ_BEGIN = "begin_datum";
-    private static final String VERZ_END = "eind_datum";
-    private static final String VERZ_USERNAME = "user_name";
-
-
     private static final String USER_TABLE = "user";
-    private static final String USER_USERNAME = "user_name";
-    private static final String USER_PASSWORD = "password";
-    private static final String USER_FIRSTNAME = "voornaam";
-    private static final String USER_LASTNAME = "achternaam";
-
     private static final String SQL_VERZ_TABLE_QUERY = "CREATE TABLE verzekering (verz_id INTEGER PRIMARY KEY,verzekering_type TEXT, begin_datum TEXT, eind_datum TEXT,user_name TEXT,FOREIGN KEY (user_name) REFERENCES user(user_name));";
 
 
@@ -78,7 +74,6 @@ public class MainDAO extends SQLiteOpenHelper {
         user4.put(USER_FIRSTNAME, "Test");
         user4.put(USER_LASTNAME, " Test");
         insertUser(USER_TABLE, user4);
-
     }
 
     public void insertDefaultDataVerzekering() {
@@ -145,25 +140,6 @@ public class MainDAO extends SQLiteOpenHelper {
         return loginTry;
     }
 
-    //multi verz vinden en zetten in array NIET WERKEND
-/*
-    public ArrayList<Verzekering> showMultiVerz (String username){
-        ArrayList<Verzekering> verzekeringen = null;
-        SQLiteDatabase db = getReadableDatabase();
-        String sql = String.format("select * from %s where %s = '%s';", VERZ_TABLE, VERZ_USERNAME, username);
-        Cursor cursor = db.rawQuery(sql, null);
-        cursor.moveToFirst();
-        if(cursor.getCount() > 0) verzekeringen = new ArrayList<>();
-            Verzekering verzekering = null;
-            while (!cursor.isAfterLast()){
-                verzekering = new Verzekering(cursor.getLong(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4));
-           //     assert verzekeringen != null;
-                verzekeringen.add(verzekering);
-            }
-            db.close();
-            return verzekeringen;
-    }
-*/
     public Verzekering showVerz(String username) {
         Verzekering num1 = null;
         SQLiteDatabase db = getReadableDatabase();
@@ -174,7 +150,6 @@ public class MainDAO extends SQLiteOpenHelper {
         }
         db.close();
         return num1;
-
     }
 
     @Override
@@ -185,6 +160,5 @@ public class MainDAO extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
     }
 }

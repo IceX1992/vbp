@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="beroepsproduct.dion.test.com.beroepsproduct.CreateNew"
+    tools:showIn="@layout/activity_create_new">
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="Create new user"
+        android:textSize="18dp" />
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView3"
+        android:layout_marginTop="36dp"
+        android:layout_toLeftOf="@+id/password"
+        android:layout_toStartOf="@+id/password"
+        android:hint="Username" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/username"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword" />
+
+    <EditText
+        android:id="@+id/voornaam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/password"
+        android:layout_toLeftOf="@+id/password"
+        android:layout_toStartOf="@+id/password"
+        android:hint="Voornaam" />
+
+    <EditText
+        android:id="@+id/achternaam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/password"
+        android:layout_alignLeft="@+id/password"
+        android:layout_alignRight="@+id/password"
+        android:layout_alignStart="@+id/password"
+        android:layout_below="@+id/username"
+        android:hint="Achternaam" />
+
+    <EditText
+        android:id="@+id/verzekeringType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/achternaam"
+        android:layout_toLeftOf="@+id/achternaam"
+        android:layout_toStartOf="@+id/achternaam"
+        android:hint="Verzekering" />
+
+    <EditText
+        android:id="@+id/beginDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/verzekeringType"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/verzekeringType"
+        android:layout_below="@+id/verzekeringType"
+        android:hint="Begin datum" />
+
+    <EditText
+        android:id="@+id/endDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/achternaam"
+        android:layout_alignRight="@+id/achternaam"
+        android:layout_below="@+id/verzekeringType"
+        android:layout_toRightOf="@+id/verzekeringType"
+        android:hint="Eind datum" />
+
+    <Button
+        android:id="@+id/create"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/beginDate"
+        android:layout_marginTop="84dp"
+        android:layout_toLeftOf="@+id/textView3"
+        android:layout_toStartOf="@+id/textView3"
+        android:onClick="createUser"
+        android:text="CREATE" />
+
+    <Button
+        android:id="@+id/goLoginScreen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/create"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="45dp"
+        android:layout_marginRight="45dp"
+        android:onClick="go2Login"
+        android:text="Back to loginscreen" />
+
+</RelativeLayout>
