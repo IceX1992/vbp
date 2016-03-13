@@ -17,117 +17,136 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Create new user"
+        android:textSize="18dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:text="Create new user"
-        android:textSize="18dp" />
+        android:layout_marginTop="25dp"
+        android:textColor="#1d7f07" />
 
     <EditText
         android:id="@+id/username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:layout_marginTop="28dp"
+        android:hint="Username"
+        android:textColor="#1d7f07"
+        android:textSize="15dp"
         android:layout_below="@+id/textView3"
-        android:layout_marginTop="36dp"
-        android:layout_toLeftOf="@+id/password"
-        android:layout_toStartOf="@+id/password"
-        android:hint="Username" />
+        android:layout_alignLeft="@+id/voornaam"
+        android:layout_alignStart="@+id/voornaam"
+        android:layout_alignRight="@+id/voornaam"
+        android:layout_alignEnd="@+id/voornaam" />
 
     <EditText
         android:id="@+id/password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/username"
         android:ems="10"
         android:hint="Password"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:textColor="#1d7f07"
+        android:textSize="15dp"
+
+        android:layout_alignTop="@+id/username"
+        android:layout_alignRight="@+id/verzekeringType"
+        android:layout_alignEnd="@+id/verzekeringType" />
 
     <EditText
         android:id="@+id/voornaam"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/password"
-        android:layout_toLeftOf="@+id/password"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:hint="Voornaam"
+        android:textColor="#1d7f07"
+        android:textSize="15dp"
+        android:layout_below="@+id/username"
+        android:layout_alignLeft="@+id/beginDate"
+        android:layout_alignStart="@+id/beginDate"
         android:layout_toStartOf="@+id/password"
-        android:hint="Voornaam" />
+        android:layout_toLeftOf="@+id/password" />
 
     <EditText
         android:id="@+id/achternaam"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/password"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:hint="Achternaam"
+        android:textColor="#1d7f07"
+        android:textSize="15dp"
+        android:layout_below="@+id/password"
         android:layout_alignLeft="@+id/password"
-        android:layout_alignRight="@+id/password"
         android:layout_alignStart="@+id/password"
-        android:layout_below="@+id/username"
-        android:hint="Achternaam" />
+        android:layout_alignRight="@+id/password"
+        android:layout_alignEnd="@+id/password" />
 
 
     <Spinner
         android:id="@+id/verzekeringType"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:entries="@array/verzekeringen"
         android:layout_below="@+id/datumType"
-        android:layout_marginTop="99dp"
-        android:entries="@array/verzekeringen" />
+        android:layout_centerHorizontal="true" />
 
 
     <EditText
         android:id="@+id/beginDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignTop="@+id/endDate"
-        android:layout_toLeftOf="@+id/endDate"
-        android:layout_toStartOf="@+id/endDate"
-        android:hint="Begin datum" />
+        android:hint="Begin datum"
+        android:textColor="#1d7f07"
+        android:textSize="15dp"
+        android:layout_below="@+id/voornaam"
+        android:layout_alignLeft="@+id/verzekeringType"
+        android:layout_alignStart="@+id/verzekeringType"
+        android:layout_toStartOf="@+id/endDate" />
 
     <EditText
         android:id="@+id/endDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/achternaam"
-        android:layout_alignRight="@+id/achternaam"
+        android:hint="Eind datum"
+        android:textColor="#1d7f07"
+        android:textSize="15dp"
         android:layout_below="@+id/voornaam"
-        android:layout_toRightOf="@+id/voornaam"
-        android:hint="Eind datum" />
+        android:layout_alignRight="@+id/verzekeringType"
+        android:layout_alignEnd="@+id/verzekeringType"
+        android:layout_alignLeft="@+id/achternaam"
+        android:layout_alignStart="@+id/achternaam" />
 
     <TextView
         android:id="@+id/datumType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Date format YYYY-MM-DD"
+        android:textSize="15dp"
+        android:textColor="#1d7f07"
         android:layout_below="@+id/beginDate"
-        android:layout_centerHorizontal="true"
-        android:text="Date version YYYY-MM-DD"
-        android:textSize="20dp" />
-    <Button
-        android:id="@+id/create"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/verzekeringType"
-        android:onClick="createUser"
-        android:text="CREATE" />
+        android:layout_centerHorizontal="true" />
 
-    <Button
+    <ImageButton
+        android:id="@+id/create"
+        android:onClick="createUser"
+        android:text="CREATE"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        android:src="@drawable/registreer_button"
+        android:layout_below="@+id/verzekeringType"
+        android:layout_alignLeft="@+id/goLoginScreen"
+        android:layout_alignStart="@+id/goLoginScreen" />
+
+    <ImageButton
         android:id="@+id/goLoginScreen"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/create"
-        android:layout_alignBottom="@+id/create"
-        android:layout_toEndOf="@+id/beginDate"
-        android:layout_toRightOf="@+id/beginDate"
         android:onClick="go2Login"
-        android:text="Back to loginscreen" />
+        android:text="Back to loginscreen"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        android:src="@drawable/terug_naar_login_button"
+        android:layout_below="@+id/create"
+        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>
