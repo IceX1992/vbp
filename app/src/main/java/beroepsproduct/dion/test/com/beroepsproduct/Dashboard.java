@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,11 +33,45 @@ public class Dashboard extends AppCompatActivity {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
 
 
-        message = String.valueOf(username.getString("username"));
+        //ARRAY NIET WERKEND
+/*
+        ArrayList<Verzekering> verzekeringen = db.showMultiVerz(message);
+        if (verzekeringen !=null){
+            ListView listView = (ListView) findViewById(R.id.listView);
+            ListIterator<Verzekering> iterator1 = verzekeringen.listIterator();
+
+            ArrayList<String> helperList = new ArrayList<>();
+            ArrayList<Verzekering> uniqueVerz = new ArrayList<>();
+
+            for (Verzekering verzekering : verzekeringen){
+                if (!helperList.contains(verzekering.toString())){
+                    helperList.add(verzekering.toString());
+                    uniqueVerz.add(verzekering);
+                }
+            }
+
+            ArrayAdapter<Verzekering> adapter = new ArrayAdapter<Verzekering>(this, android.R.layout.simple_selectable_list_item, uniqueVerz);
+
+            listView.setAdapter(adapter);
+
+        }
+
+*/
+        //text met verzekeringen
+        getVerz(message);
+        //stuur de username naar de methode sendMessageAfspraakMaken, daar gebruikt omt het in die activity te krijgen
+        sendMessageAfspraakMaken(message);
+        //stuur de username naar de methode sendMessageOverzicht, daar gebruikt om het in die activity te krijgen
+        sendMessageOverzicht(message);
+
+
+    }
+
+    public void getVerz(String username) {
 
         Verzekering verz1 = null;
         TextView outputVerz = (TextView) findViewById(R.id.textView);
-        verz1 = db.showVerz(message);
+        verz1 = db.showVerz(username);
 
         if (verz1 != null) {
             String output = String.format("Uw %s vervalt op %s", Verzekering.getVerzekering_type(), Verzekering.getEind_datum());
@@ -76,15 +111,34 @@ public class Dashboard extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void sendMessageAfspraakMaken(String username) {
+        //afspraak maken intent
+        Button test = (Button) findViewById(R.id.button);
 
-    public void findVerz(View view) {
-
-        Intent intent = new Intent(this, VerzekeringOverzicht.class);
-        startActivity(intent);
+        final String extra = username;
+        test.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), AfspraakMaken.class);
+                intent.putExtra("username", extra);
+                startActivity(intent);
+            }
+        });
     }
 
-    public void verzInfo(View view) {
-        Intent intent = new Intent(this, AfspraakMaken.class);
-        startActivity(intent);
+    public void sendMessageOverzicht(String username) {
+        //verz overzicht intent
+        Button test = (Button) findViewById(R.id.button2);
+
+        final String extra = username;
+        test.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), VerzekeringOverzicht.class);
+                intent.putExtra("username", extra);
+
+                startActivity(intent);
+            }
+        });
     }
 }

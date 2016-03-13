@@ -21,7 +21,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="149dp"
-        android:onClick="findVerz"
+        android:onClick="afspraakMaak"
         android:text="New Button" />
 
     <Button
@@ -41,7 +41,8 @@
         android:layout_alignLeft="@+id/button"
         android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/button"
-        android:layout_marginTop="73dp"
+        android:layout_marginTop="65dp"
+        android:text="Large Text"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </RelativeLayout>
