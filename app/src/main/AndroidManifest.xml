@@ -33,6 +33,10 @@
         <activity
             android:name=".CreateNew"
             android:label="@string/title_activity_create_new"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".About"
+            android:label="@string/title_activity_about"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

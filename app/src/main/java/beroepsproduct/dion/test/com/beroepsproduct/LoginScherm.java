@@ -64,7 +64,7 @@ public class LoginScherm extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_login_scherm, menu);
+        getMenuInflater().inflate(R.menu.menu_about, menu);
         return true;
     }
 
@@ -74,12 +74,20 @@ public class LoginScherm extends AppCompatActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
+
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.about) {
+            login();
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
+
+    public void login() {
+        Intent intent = new Intent(this, About.class);
+        startActivity(intent);
+    }
+
 
     public void go2Create(View view) {
         Intent intent = new Intent(this, CreateNew.class);
