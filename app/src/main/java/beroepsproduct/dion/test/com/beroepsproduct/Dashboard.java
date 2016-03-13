@@ -39,6 +39,7 @@ public class Dashboard extends AppCompatActivity {
         sendMessageOverzicht(message);
     }
 
+    //hiermee wordt de verzekeringtype en einddatum opgehaald
     public void getVerz(String username) {
         Verzekering verz1 = null;
         TextView outputVerz = (TextView) findViewById(R.id.textView);
@@ -80,6 +81,7 @@ public class Dashboard extends AppCompatActivity {
         startActivity(intent);
     }
 
+    //username wordt meegestuurd in de onclick naar de afspraakmaken activity
     public void sendMessageAfspraakMaken(String username) {
         //afspraak maken intent
         ImageButton test = (ImageButton) findViewById(R.id.button);
@@ -95,6 +97,7 @@ public class Dashboard extends AppCompatActivity {
         });
     }
 
+    //username wordt meegestuurd in de onclick naar de verzekering overzicht activity
     public void sendMessageOverzicht(String username) {
         //verz overzicht intent
         ImageButton test = (ImageButton) findViewById(R.id.button2);

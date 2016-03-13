@@ -23,20 +23,27 @@ public class VerzekeringOverzicht extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        //bundle die wordt gestuurd vanuit dashboard met in dit geval de username waarnee wij uit
+        // de DAO de verzekerings gegevens ophalen
         Bundle username = getIntent().getExtras();
-        String message = "";
+        String message;
         message = username.getString("username");
 
+        //de username wordt mee gestuurd naar de method afspraakmaken als parameter
         afspraakMaken(message);
+        //de username wordt mee gestuurd naar de methode back 2 dashboard als parameter
         back2DB(message);
 
         db = new MainDAO(this);
 
+        //met de username worden een aantal methodes opgeroepen die de verzekering type, begin datum
+        //en eind datum weergeven
         showVerzNaam(message);
         showverzVerval(message);
         showStart(message);
     }
 
+    //de verzekerings naam wordt opgehaald uit de DAO met de username
     public void showVerzNaam(String username) {
         Verzekering verz1 = null;
         TextView naam = (TextView) findViewById(R.id.SoortVerzekering);
@@ -52,6 +59,7 @@ public class VerzekeringOverzicht extends AppCompatActivity {
         }
     }
 
+    //de verzekerings verval datum wordt opgehaald uit de DAO met de username
     public void showverzVerval(String username) {
         Verzekering verz1 = null;
         TextView datumVerval = (TextView) findViewById(R.id.VervaldatumVerzekering);
@@ -66,6 +74,7 @@ public class VerzekeringOverzicht extends AppCompatActivity {
         }
     }
 
+    //de start datum van de verzekering wordt opgehaald uit de DAO met de username
     public void showStart(String username) {
         Verzekering verz1 = null;
         TextView datumStart = (TextView) findViewById(R.id.StartVerz);
@@ -80,6 +89,8 @@ public class VerzekeringOverzicht extends AppCompatActivity {
         }
     }
 
+    //de username wordt hier meegestuurd naar de afspraa kmaken activity waar het gebruikt wordt
+    // om de afspraak op te slaan
     public void afspraakMaken(String username) {
         ImageButton b2db = (ImageButton) findViewById(R.id.imageButton);
 
@@ -94,6 +105,8 @@ public class VerzekeringOverzicht extends AppCompatActivity {
         });
     }
 
+    //de dashboard verwacht een key genaamd 'username' in de bundle. Hiermee wordt de username
+    //gestuurd in die bundle
     public void back2DB(String username) {
         ImageButton b2db = (ImageButton) findViewById(R.id.imageButton2);
 
@@ -131,6 +144,7 @@ public class VerzekeringOverzicht extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    //intent die wordt opgeroepen als men op logout klikt
     public void logoutUser() {
         Intent intent = new Intent(this, LoginScherm.class);
         startActivity(intent);

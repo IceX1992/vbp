@@ -27,7 +27,10 @@ public class LoginScherm extends AppCompatActivity {
         db = new MainDAO(this);
     }
 
+    //login wordt hier uitgevoerd
     public void onClickLogin(View view){
+
+        //de username en password worden opgeslagen in een string
         EditText username =(EditText) findViewById(R.id.username);
         String usernameValue = String.valueOf(username.getText());
 
@@ -37,8 +40,11 @@ public class LoginScherm extends AppCompatActivity {
         String notification = "";
         User login = null;
 
+        //de database method waarmee er ingelogd wordt, wordt opgeroepen met als parameters
+        //de username en password
         login = db.login(usernameValue, passwordValue);
 
+        //toekomst mischien een encryption voor password
         if (login != null) {
             boolean isPasswordValid = login.comparePassword(passwordValue);
             if (isPasswordValid) {

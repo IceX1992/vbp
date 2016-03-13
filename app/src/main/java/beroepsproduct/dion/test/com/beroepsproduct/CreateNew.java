@@ -3,8 +3,6 @@ package beroepsproduct.dion.test.com.beroepsproduct;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -31,6 +29,9 @@ public class CreateNew extends AppCompatActivity {
     }
 
     public void createUser(View view) {
+
+        //aantal edittexts en een spinner om data te krijgen van de gebruiker om een nieuwe account
+        //plus verzekering in te voeren.
         EditText username = (EditText) findViewById(R.id.username);
         String usernameValue = String.valueOf(username.getText());
 
@@ -64,23 +65,25 @@ public class CreateNew extends AppCompatActivity {
                 !beginDatumValue.isEmpty() &&
                 !endDatumValue.isEmpty()) {
 
+            //de userdata wordt insert in de db
             ContentValues user = new ContentValues();
             user.put(MainDAO.USER_USERNAME, usernameValue);
             user.put(MainDAO.USER_PASSWORD, passwordValue);
             user.put(MainDAO.USER_FIRSTNAME, voornaamValue);
             user.put(MainDAO.USER_LASTNAME, achternaamValue);
             long recordId = db.insertUser(usernameValue, user);
-            notificationUser = recordId > 0 ? "User" : "No User ";
+            notificationUser = recordId > 0 ? "User" : "Geen user ";
 
+            //de verzekerings data wordt opgeslagen in de db
             ContentValues verz = new ContentValues();
             verz.put(MainDAO.VERZ_TYPE, verzekeringTypeValue);
             verz.put(MainDAO.VERZ_BEGIN, beginDatumValue);
             verz.put(MainDAO.VERZ_END, endDatumValue);
             verz.put(MainDAO.VERZ_USERNAME, usernameValue);
             long recordId2 = db.insertVerz(usernameValue, verz);
-            notificationVerz = recordId2 > 0 ? "Verzekering " : "No verzekering ";
+            notificationVerz = recordId2 > 0 ? "Verzekering " : "geen verzekering ";
 
-            notification = notificationUser + " " + notificationVerz + " inserted";
+            notification = notificationUser + " " + " en " + notificationVerz + " inserted";
 
             Toast.makeText(this, notification, Toast.LENGTH_LONG).show();
 

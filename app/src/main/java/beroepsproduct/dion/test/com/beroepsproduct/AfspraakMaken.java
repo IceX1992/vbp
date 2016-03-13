@@ -39,8 +39,12 @@ public class AfspraakMaken extends AppCompatActivity {
         afspraak.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month  , int dayOfMonth) {
+                //de datum waarop geklikt wordt, wordt opgeslagen in een string genaamd datum
                 String datum = String.valueOf(year) + "-" + String.valueOf(month + 1) + "-" + String.valueOf(dayOfMonth);
+                //message wordt final gemaakt zodat het gebruikt kan worden in afspraakmaken
                 final String message = username.getString("username");
+                //de username en de datum worden gebruikt als parameters bij de onclick voor
+                //een afspraak maken
                 afspraakMaken(message, datum);
                 Toast.makeText(getApplicationContext(), datum, Toast.LENGTH_SHORT).show();
             }
@@ -104,7 +108,7 @@ public class AfspraakMaken extends AppCompatActivity {
                 afspraak.put(AfspraakDAO.AFS_USERNAME, username);
                 afspraak.put(AfspraakDAO.AFS_DATUM, datum);
                 long recordId = db.insertAfs(username, afspraak);
-                notification = recordId > 0 ? "Data inserted" : "No data inserted";
+                notification = recordId > 0 ? "Afspraak gemaakt" : "Geen afspraak gemaakt";
                 Toast.makeText(v.getContext(), notification, Toast.LENGTH_LONG).show();
             }
         });
