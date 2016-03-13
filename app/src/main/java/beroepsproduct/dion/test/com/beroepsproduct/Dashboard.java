@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -113,7 +114,7 @@ public class Dashboard extends AppCompatActivity {
 
     public void sendMessageAfspraakMaken(String username) {
         //afspraak maken intent
-        Button test = (Button) findViewById(R.id.button);
+        ImageButton test = (ImageButton) findViewById(R.id.button);
 
         final String extra = username;
         test.setOnClickListener(new View.OnClickListener() {
@@ -128,7 +129,7 @@ public class Dashboard extends AppCompatActivity {
 
     public void sendMessageOverzicht(String username) {
         //verz overzicht intent
-        Button test = (Button) findViewById(R.id.button2);
+        ImageButton test = (ImageButton) findViewById(R.id.button2);
 
         final String extra = username;
         test.setOnClickListener(new View.OnClickListener() {

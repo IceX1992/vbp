@@ -50,12 +50,14 @@ public class LoginScherm extends AppCompatActivity {
                 startActivity(intent);
             } else {
                 notification = "Foutieve login, probeert U het nogmaals";
+                Toast.makeText(this,notification,Toast.LENGTH_SHORT).show();
+
             }
 
         }else{
             notification = "Foutieve login probeert U het nogmaals";
+            Toast.makeText(this,notification,Toast.LENGTH_SHORT).show();
         }
-        Toast.makeText(this,notification,Toast.LENGTH_SHORT).show();
     }
 
     @Override
