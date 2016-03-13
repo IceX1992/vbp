@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -46,8 +45,8 @@ public class AfspraakMaken extends AppCompatActivity {
             public void onSelectedDayChange(CalendarView view, int year, int month  , int dayOfMonth) {
                 String datum = String.valueOf(year) + "-" + String.valueOf(month + 1) + "-" + String.valueOf(dayOfMonth);
                 final String message = username.getString("username");
-                //  afspraakMaken(message, datum);
-                Toast.makeText(getApplicationContext(), datum, LENGTH_LONG).show();
+                afspraakMaken(message, datum);
+                Toast.makeText(getApplicationContext(), datum, Toast.LENGTH_SHORT).show();
                 //  Toast.makeText(getApplicationContext(), dayOfMonth + "/" + (month+1) + "/" + year, Toast.LENGTH_LONG).show();
             }
         });
@@ -56,7 +55,7 @@ public class AfspraakMaken extends AppCompatActivity {
     public void searchAfspraak(final String username) {
 
 
-        Button invoer = (Button) findViewById(R.id.button3);
+        ImageButton invoer = (ImageButton) findViewById(R.id.button3);
         invoer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
