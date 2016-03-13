@@ -71,10 +71,10 @@
         android:id="@+id/verzekeringType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/goLoginScreen"
+        android:layout_alignEnd="@+id/achternaam"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/goLoginScreen"
+        android:layout_alignRight="@+id/achternaam"
         android:layout_below="@+id/achternaam"
         android:layout_toStartOf="@+id/achternaam"
         android:hint="Verzekering" />
@@ -83,11 +83,11 @@
         android:id="@+id/beginDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/verzekeringType"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/verzekeringType"
         android:layout_below="@+id/verzekeringType"
+        android:layout_toLeftOf="@+id/achternaam"
+        android:layout_toStartOf="@+id/achternaam"
         android:hint="Begin datum" />
 
     <EditText
@@ -97,7 +97,7 @@
         android:layout_alignEnd="@+id/achternaam"
         android:layout_alignRight="@+id/achternaam"
         android:layout_below="@+id/verzekeringType"
-        android:layout_toRightOf="@+id/verzekeringType"
+        android:layout_toRightOf="@+id/beginDate"
         android:hint="Eind datum" />
 
     <Button
