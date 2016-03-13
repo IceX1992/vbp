@@ -9,4 +9,12 @@
     <string name="title_activity_spash">Spash</string>
     <string name="title_activity_splashh">Splashh</string>
     <string name="title_activity_create_new">CreateNew</string>
+    <string-array name="verzekeringen">
+        <item>Kies een Verzekering uit</item>
+        <item>Brandverzekering</item>
+        <item>Inboedelverzekering</item>
+        <item>Woningverzekering</item>
+        <item>Autoverzekering</item>
+    </string-array>
+
 </resources>

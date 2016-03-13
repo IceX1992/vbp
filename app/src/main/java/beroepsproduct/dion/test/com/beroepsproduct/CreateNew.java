@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import beroepsproduct.dion.test.com.beroepsproduct.database.MainDAO;
@@ -49,8 +50,8 @@ public class CreateNew extends AppCompatActivity {
         EditText achternaam = (EditText) findViewById(R.id.achternaam);
         String achternaamValue = String.valueOf(achternaam.getText());
 
-        EditText verzekeringType = (EditText) findViewById(R.id.verzekeringType);
-        String verzekeringTypeValue = String.valueOf(verzekeringType.getText());
+        Spinner verzekeringType = (Spinner) findViewById(R.id.verzekeringType);
+        String verzekeringTypeValue = String.valueOf(verzekeringType.getSelectedItem());
 
         EditText beginDatum = (EditText) findViewById(R.id.beginDate);
         String beginDatumValue = String.valueOf(beginDatum.getText());

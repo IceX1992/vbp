@@ -67,17 +67,17 @@
         android:layout_below="@+id/username"
         android:hint="Achternaam" />
 
-    <EditText
+
+    <Spinner
         android:id="@+id/verzekeringType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/achternaam"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/achternaam"
-        android:layout_below="@+id/achternaam"
-        android:layout_toStartOf="@+id/achternaam"
-        android:hint="Verzekering" />
+        android:layout_below="@+id/datumType"
+        android:layout_marginTop="99dp"
+        android:entries="@array/verzekeringen" />
+
 
     <EditText
         android:id="@+id/beginDate"
@@ -85,9 +85,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/verzekeringType"
-        android:layout_toLeftOf="@+id/achternaam"
-        android:layout_toStartOf="@+id/achternaam"
+        android:layout_alignTop="@+id/endDate"
+        android:layout_toLeftOf="@+id/endDate"
+        android:layout_toStartOf="@+id/endDate"
         android:hint="Begin datum" />
 
     <EditText
@@ -96,18 +96,25 @@
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/achternaam"
         android:layout_alignRight="@+id/achternaam"
-        android:layout_below="@+id/verzekeringType"
-        android:layout_toRightOf="@+id/beginDate"
+        android:layout_below="@+id/voornaam"
+        android:layout_toRightOf="@+id/voornaam"
         android:hint="Eind datum" />
 
+    <TextView
+        android:id="@+id/datumType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/beginDate"
+        android:layout_centerHorizontal="true"
+        android:text="Date version YYYY-MM-DD"
+        android:textSize="20dp" />
     <Button
         android:id="@+id/create"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/beginDate"
-        android:layout_marginTop="84dp"
-        android:layout_toLeftOf="@+id/textView3"
-        android:layout_toStartOf="@+id/textView3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/verzekeringType"
         android:onClick="createUser"
         android:text="CREATE" />
 
@@ -115,12 +122,12 @@
         android:id="@+id/goLoginScreen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/create"
         android:layout_alignBottom="@+id/create"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginEnd="45dp"
-        android:layout_marginRight="45dp"
+        android:layout_toEndOf="@+id/beginDate"
+        android:layout_toRightOf="@+id/beginDate"
         android:onClick="go2Login"
         android:text="Back to loginscreen" />
+
 
 </RelativeLayout>
