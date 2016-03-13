@@ -71,10 +71,11 @@
         android:id="@+id/verzekeringType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/goLoginScreen"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/goLoginScreen"
         android:layout_below="@+id/achternaam"
-        android:layout_toLeftOf="@+id/achternaam"
         android:layout_toStartOf="@+id/achternaam"
         android:hint="Verzekering" />
 
