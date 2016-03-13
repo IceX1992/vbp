@@ -8,10 +8,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import beroepsproduct.dion.test.com.beroepsproduct.database.MainDAO;
+import beroepsproduct.dion.test.com.beroepsproduct.entities.Verzekering;
 
 public class VerzekeringOverzicht extends AppCompatActivity {
 
+    private MainDAO db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +32,55 @@ public class VerzekeringOverzicht extends AppCompatActivity {
         afspraakMaken(message);
         back2DB(message);
 
+        db = new MainDAO(this);
+
+        showVerzNaam(message);
+        showverzVerval(message);
+        showStart(message);
+
+    }
+
+    public void showVerzNaam(String username) {
+        Verzekering verz1 = null;
+        TextView naam = (TextView) findViewById(R.id.SoortVerzekering);
+
+        verz1 = db.showVerz(username);
+
+        if (verz1 != null) {
+            String output = String.format("Type verzekering: %s", Verzekering.getVerzekering_type());
+            naam.setText(output);
+        } else {
+            String output = "Geen verzekering";
+            naam.setText(output);
+        }
+    }
+
+    public void showverzVerval(String username) {
+        Verzekering verz1 = null;
+        TextView datumVerval = (TextView) findViewById(R.id.VervaldatumVerzekering);
+        verz1 = db.showVerz(username);
+
+        if (verz1 != null) {
+            String output = String.format("Vervaldatum: %s", Verzekering.getEind_datum());
+            datumVerval.setText(output);
+        } else {
+            String output = "Geen verzekering";
+            datumVerval.setText(output);
+        }
+    }
+
+    public void showStart(String username) {
+        Verzekering verz1 = null;
+        TextView datumStart = (TextView) findViewById(R.id.StartVerz);
+        verz1 = db.showVerz(username);
+
+        if (verz1 != null) {
+            String output = String.format("Begindatum: %s", Verzekering.getBegin_datum());
+            datumStart.setText(output);
+        } else {
+            String output = "Geen verzekering";
+            datumStart.setText(output);
+        }
     }
 
     public void afspraakMaken(String username) {

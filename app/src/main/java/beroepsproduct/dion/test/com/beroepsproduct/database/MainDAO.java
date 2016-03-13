@@ -82,12 +82,6 @@ public class MainDAO extends SQLiteOpenHelper {
     }
 
     public void insertDefaultDataVerzekering() {
-        ContentValues verz = new ContentValues();
-        verz.put(VERZ_TYPE, "Brandverzekering");
-        verz.put(VERZ_BEGIN, "2015-11-16");
-        verz.put(VERZ_END, "2020-11-16");
-        verz.put(VERZ_USERNAME, "Ice");
-        insertVerz(VERZ_TABLE, verz);
 
         ContentValues verz1 = new ContentValues();
         verz1.put(VERZ_TYPE, "Woningverzekering");
