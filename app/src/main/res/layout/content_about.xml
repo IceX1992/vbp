@@ -18,12 +18,46 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="62dp"
         android:gravity="center"
-        android:text="Made by: Dion Loor and Justin Lo-Ning-Hing"
+        android:text="Made by"
         android:textColor="#1d7f07"
-        android:textSize="18dp" />
+        android:textSize="18dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:gravity="center"
+        android:text="Dion Loor and Justin Lo-Ning-Hing"
+        android:textColor="#1d7f07"
+        android:textSize="18dp"
+        android:layout_below="@+id/imageView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="37dp" />
+
+
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="170dp"
+        android:id="@+id/imageView"
+        android:src="@drawable/dion"
+        android:layout_alignTop="@+id/imageView2"
+        android:layout_alignLeft="@+id/textView5"
+        android:layout_alignStart="@+id/textView5" />
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="170dp"
+        android:id="@+id/imageView2"
+        android:src="@drawable/justin"
+        android:ems="10"
+        android:layout_marginTop="67dp"
+        android:layout_below="@+id/textView4"
+        android:layout_alignRight="@+id/textView5"
+        android:layout_alignEnd="@+id/textView5" />
 </RelativeLayout>

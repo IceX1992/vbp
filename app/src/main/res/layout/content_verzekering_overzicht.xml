@@ -23,7 +23,7 @@
     android:layout_marginTop="29dp"
     android:text="Wilt u een afspraak maken of terug gaan naar het dashboard? "
     android:textColor="#1d7f07"
-    android:textSize="18dp"
+    android:textSize="15dp"
     />
 
     <TextView
@@ -60,26 +60,26 @@
         android:id="@+id/imageButton"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
         android:background="@android:color/transparent"
         android:onClick="afspraakMaken"
         android:scaleType="fitCenter"
-        android:src="@drawable/afspraak_button" />
+        android:src="@drawable/afspraak_button"
+        android:layout_centerVertical="true"
+        android:layout_alignRight="@+id/VervaldatumVerzekering"
+        android:layout_alignEnd="@+id/VervaldatumVerzekering" />
 
     <!--terug naar Dashboard button-->
     <ImageButton
         android:id="@+id/imageButton2"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        android:layout_alignLeft="@+id/imageButton"
-        android:layout_alignStart="@+id/imageButton"
-        android:layout_below="@+id/imageButton"
-        android:layout_marginTop="35dp"
         android:background="@android:color/transparent"
         android:onClick="back2DB"
         android:scaleType="fitCenter"
-        android:src="@drawable/dashboard_button" />
+        android:src="@drawable/dashboard_button"
+        android:layout_below="@+id/imageButton"
+        android:layout_alignLeft="@+id/imageButton"
+        android:layout_alignStart="@+id/imageButton" />
 
 
 </RelativeLayout>
