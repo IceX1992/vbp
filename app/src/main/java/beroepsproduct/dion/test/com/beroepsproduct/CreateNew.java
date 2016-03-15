@@ -72,7 +72,7 @@ public class CreateNew extends AppCompatActivity {
             user.put(MainDAO.USER_FIRSTNAME, voornaamValue);
             user.put(MainDAO.USER_LASTNAME, achternaamValue);
             long recordId = db.insertUser(usernameValue, user);
-            notificationUser = recordId > 0 ? "User" : "Geen user ";
+            notificationUser = recordId > 0 ? "User" : "Geen user";
 
             //de verzekerings data wordt opgeslagen in de db
             ContentValues verz = new ContentValues();
@@ -81,9 +81,9 @@ public class CreateNew extends AppCompatActivity {
             verz.put(MainDAO.VERZ_END, endDatumValue);
             verz.put(MainDAO.VERZ_USERNAME, usernameValue);
             long recordId2 = db.insertVerz(usernameValue, verz);
-            notificationVerz = recordId2 > 0 ? "Verzekering " : "geen verzekering ";
+            notificationVerz = recordId2 > 0 ? "verzekering" : "geen verzekering";
 
-            notification = notificationUser + " " + " en " + notificationVerz + " inserted";
+            notification = notificationUser + " en " + notificationVerz + " geregisteerd";
 
             Toast.makeText(this, notification, Toast.LENGTH_LONG).show();
 

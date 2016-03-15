@@ -29,7 +29,7 @@ public class MainDAO extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
 
 
-    private static final String SQL_VERZ_TABLE_QUERY = "CREATE TABLE verzekering (verz_id INTEGER PRIMARY KEY,verzekering_type TEXT, begin_datum TEXT, eind_datum TEXT,user_name TEXT,FOREIGN KEY (user_name) REFERENCES user(user_name));";
+    private static final String SQL_VERZ_TABLE_QUERY = "CREATE TABLE verzekering (verz_id INTEGER PRIMARY KEY,verzekering_type TEXT, begin_datum TEXT, eind_datum TEXT,user_name TEXT UNIQUE,FOREIGN KEY (user_name) REFERENCES user(user_name));";
 
 
     private static final String SQL_USER_TABLE_QUERY = "CREATE TABLE user(user_name TEXT PRIMARY KEY, password TEXT NOT NULL,voornaam TEXT NOT NULL, achternaam TEXT NOT NULL);";
