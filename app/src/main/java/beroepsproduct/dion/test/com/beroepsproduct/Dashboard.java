@@ -90,7 +90,7 @@ public class Dashboard extends AppCompatActivity {
         test.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), AfspraakMaken.class);
+                Intent intent = new Intent(Dashboard.this, AfspraakMaken.class);
                 intent.putExtra("username", extra);
                 startActivity(intent);
             }
@@ -106,7 +106,7 @@ public class Dashboard extends AppCompatActivity {
         test.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), VerzekeringOverzicht.class);
+                Intent intent = new Intent(Dashboard.this, VerzekeringOverzicht.class);
                 intent.putExtra("username", extra);
 
                 startActivity(intent);

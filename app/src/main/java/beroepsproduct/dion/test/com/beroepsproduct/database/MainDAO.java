@@ -22,11 +22,13 @@ public class MainDAO extends SQLiteOpenHelper {
     public static final String USER_PASSWORD = "password";
     public static final String USER_FIRSTNAME = "voornaam";
     public static final String USER_LASTNAME = "achternaam";
-    private static final String DATABASE_NAME = "verzekeringen_users.db";
-    private static final int DATABASE_VERSION = 1;
     private static final String VERZ_TABLE = "verzekering";
     private static final String VERZ_ID = "verz_id";
     private static final String USER_TABLE = "user";
+    private static final String DATABASE_NAME = "verzekeringen_users.db";
+    private static final int DATABASE_VERSION = 1;
+
+
     private static final String SQL_VERZ_TABLE_QUERY = "CREATE TABLE verzekering (verz_id INTEGER PRIMARY KEY,verzekering_type TEXT, begin_datum TEXT, eind_datum TEXT,user_name TEXT,FOREIGN KEY (user_name) REFERENCES user(user_name));";
 
 

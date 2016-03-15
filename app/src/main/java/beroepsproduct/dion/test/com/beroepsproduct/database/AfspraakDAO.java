@@ -17,10 +17,11 @@ public class AfspraakDAO extends SQLiteOpenHelper {
     public static final String AFS_ID = "afs_id";
     public static final String AFS_DATUM = "datum";
     public static final String AFS_USERNAME = "username";
+
     private static final String DATABASE_NAME = "afspraken.db";
     private static final int DATABASE_VERSION = 1;
 
-    private static final String SQL_AFS_TABLE_QUERY = ("CREATE TABLE afspraak (afs_id INTEGER PRIMARY KEY, datum TEXT , username TEXT UNIQUE);");
+    private static final String SQL_AFS_TABLE_QUERY = ("CREATE TABLE afspraak (afs_id INTEGER PRIMARY KEY, datum TEXT UNIQUE, username TEXT UNIQUE);");
 
     public AfspraakDAO(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -64,6 +65,18 @@ public class AfspraakDAO extends SQLiteOpenHelper {
         long rowId = db.insert(AFS_TABLE, null, verzekering);
         db.close();
         return rowId;
+    }
+
+    public Afspraak findAfsWithDateUsername(String date, String username) {
+        Afspraak test = null;
+        SQLiteDatabase db = getReadableDatabase();
+        String sql = String.format("select * from %s where %s = '%s' AND %s != '%s';", AFS_TABLE, AFS_DATUM, date, AFS_USERNAME, username);
+        Cursor cursor = db.rawQuery(sql, null);
+        if (cursor.moveToNext()) {
+            test = new Afspraak(cursor.getLong(0), cursor.getString(1), cursor.getString(2));
+        }
+        db.close();
+        return test;
     }
 
     public Afspraak findAfs(String username) {

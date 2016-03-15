@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -25,14 +26,22 @@ public class AfspraakMaken extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_afspraak_maken);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         final Bundle username = getIntent().getExtras();
         String message = "";
         message = username.getString("username");
 
+        //3 toasts omdat het op mijn cel 11/12 sec duurt voor de calender geload is, derde toast wijst
+        //3 sec
+        String selectDate = "Selecteer een datum";
+        Toast.makeText(this, selectDate, Toast.LENGTH_LONG).show();
+        Toast.makeText(this, selectDate, Toast.LENGTH_LONG).show();
+        Toast.makeText(this, selectDate, Toast.LENGTH_LONG).show();
+
         db = new AfspraakDAO(this);
 
-        searchAfspraak(message);
 
         afspraak = (CalendarView) findViewById(R.id.calendarView);
         //sets the listener to be notified upon selected date change.
@@ -46,25 +55,37 @@ public class AfspraakMaken extends AppCompatActivity {
                 //de username en de datum worden gebruikt als parameters bij de onclick voor
                 //een afspraak maken
                 afspraakMaken(message, datum);
-                Toast.makeText(getApplicationContext(), datum, Toast.LENGTH_SHORT).show();
+                searchAfspraak(message, datum);
+
+                Toast.makeText(AfspraakMaken.this, datum, Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-    public void searchAfspraak(final String username) {
+    public void searchAfspraak(final String username, final String datum) {
         ImageButton invoer = (ImageButton) findViewById(R.id.button3);
         invoer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Afspraak test = null;
-                test = db.findAfs(username);
-                if (test != null) {
-                    testOutput = String.format("Afspraak op %s", Afspraak.getDatum());
+                //de eerste if zoekt in de DAO als er al een datum gecreerd is door iemand anders dan de user
+                Afspraak findAfsUser = null;
+                findAfsUser = db.findAfsWithDateUsername(datum, username);
+                if (findAfsUser != null) {
+                    testOutput = String.format("Iemand anders heeft al een afspraak op %s", Afspraak.getDatum());
                 } else {
-                    testOutput = "Geen afspraak";
+                    //als er niet gemaakt is wordt er gekeken als de user een afspraak gemaakt heeft
+                    Afspraak test = null;
+                    test = db.findAfs(username);
+                    if (test != null) {
+                        testOutput = String.format("U heeft al een afspraak op %s", Afspraak.getDatum());
+                    } else {
+                        //als dat ook niet zo is betekent het dat er geen afspraak is op die dag door iemand
+                        // of de user
+                        testOutput = "Geen afspraak";
+                    }
                 }
-                Toast.makeText(v.getContext(), testOutput, Toast.LENGTH_LONG).show();
+                Toast.makeText(AfspraakMaken.this, testOutput, Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -109,7 +130,7 @@ public class AfspraakMaken extends AppCompatActivity {
                 afspraak.put(AfspraakDAO.AFS_DATUM, datum);
                 long recordId = db.insertAfs(username, afspraak);
                 notification = recordId > 0 ? "Afspraak gemaakt" : "Geen afspraak gemaakt";
-                Toast.makeText(v.getContext(), notification, Toast.LENGTH_LONG).show();
+                Toast.makeText(AfspraakMaken.this, notification, Toast.LENGTH_LONG).show();
             }
         });
     }

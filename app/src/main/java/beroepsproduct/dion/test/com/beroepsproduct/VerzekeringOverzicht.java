@@ -98,7 +98,7 @@ public class VerzekeringOverzicht extends AppCompatActivity {
         b2db.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), AfspraakMaken.class);
+                Intent intent = new Intent(VerzekeringOverzicht.this, AfspraakMaken.class);
                 intent.putExtra("username", extra);
                 startActivity(intent);
             }
@@ -114,7 +114,7 @@ public class VerzekeringOverzicht extends AppCompatActivity {
         b2db.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), Dashboard.class);
+                Intent intent = new Intent(VerzekeringOverzicht.this, Dashboard.class);
                 intent.putExtra("username", extra);
                 startActivity(intent);
             }
